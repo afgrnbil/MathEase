@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MathEase</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .main {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.753);
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 2rem;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    nav div img {
+      width: 60px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      color: black;
+      font-weight: 600;
+      padding: 8px 0;
+      transition: all;
+      transition-duration: 300ms;
+      border-bottom: 1px solid rgba(255, 68, 0, 0);
+    }
+
+    nav ul li a:hover {
+      color: orangered;
+      border-bottom: 1px solid orangered;
+    }
+
+    .slider-container {
+      right: 80px;
+      width: 400px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.6s ease;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+      position: relative;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .kalkulator {
+      left: 50px;
+      width: 400px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .calculator input {
+      grid-column: span 5;
+      padding: 10px;
+      font-size: 18px;
+      text-align: right;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      background-color: #f0f0f0;
+    }
+
+    .calculator button {
+      padding: 15px;
+      font-size: 18px;
+      background-color: #f7f7f7;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .calculator button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .calculator .operator {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div>
+      <img src="SMAN 4 MAROS.jpeg" alt="logo-sman-4-maros">
+    </div>
+    <h3 style="position: relative; right: 180px; font-size: 20px; font-family: 'Times New Roman', Times, serif; top: 1px;">SMAN 4 MAROS</h3>
+    <h1 style="position: relative; right: 50px; font-family: Arial, Helvetica, sans-serif; ">SELAMAT DATANG</h1>
+    <ul>
+      <li><a href="#Profil" onclick="goToSlide(0)">Profil</a></li>
+      <li><a href="#Informasi" onclick="goToSlide(1)">Informasi</a></li>
+      <li><a href="#Fitur" onclick="goToSlide(2)">Fitur</a></li>
+    </ul>
+  </nav>
+  <div class="main">
+    <div class="slider-container">
+      <div class="slide active">
+        <h2>Profil</h2>
+        <p>
+          Halo, Perkenalkan saya AFGAR NABIL RAMADANI dari SMAN 4 MAROS, jurusan IPA. Saya ingin menampilkan project
+          akhir saya yakni sebuah "kalkulator". Project ini merupakan hasil akhir dari mengikuti pelatihan 1 sekolah 1
+          programmer
+        </p>
+      </div>
+      <div class="slide">
+        <h2>Informasi</h2>
+        <p style="text-align: justify;">
+          Saya memilih project kalkulator ini, karena saya menganggap project ini masih relevan dengan skill IT yang
+          saya
+          kuasai.
+          Saya juga yakin dengan kompetensi yang saya miliki, walaupun saya masih pemula dalam membuat project seperti
+          ini, tapi saya yakin
+          dengan kemampuan saya dan juga saya puas dengan hasil akhir project ini. Saya harap dengan mengikuti pelatihan
+          ini saya bisa mengembangkan
+          minat dan bakat saya dalam dunia coding.
+        </p>
+      </div>
+
+      <div class="slide">
+        <h2>Fitur Kalkulator</h2>
+        <p style="text-align: justify;">
+          1. Dapat menyelesaikan operasi aritmatika dasar<br>
+          2. Dapat menyelesaikan operasi trigonometri <br>
+          3. Dapat menyelesaikan operasi akar dan persentase <br>
+          4. Tampilan UI yang rapi dengan desain minimalis
+        </p>
+      </div>
+
+      <div class="buttons">
+        <button onclick="prevSlide()">Sebelumnya</button>
+        <button onclick="nextSlide()">Selanjutnya</button>
+      </div>
+    </div>
+    <div class="kalkulator">
+      <h2>Kalkulator Sederhana</h2>
+      <div class="calculator">
+        <input type="text" id="display" readonly>
+        <button onclick="calculateTrig('sin')">sin</button>
+        <button onclick="clearDisplay()" style="color: rgb(247, 13, 13);">C</button>
+        <button onclick="calculatePercent()" class="operator">%</button>
+        <button onclick="deleteLast()" class="operator" style="font-size: 25px; color: rgb(247, 13, 13);">←</button>
+        <button onclick="appendOperator('/')" class="operator">÷</button>
+
+
+        <button onclick="calculateTrig('cos')">cos</button>
+        <button onclick="appendNumber('7')">7</button>
+        <button onclick="appendNumber('8')">8</button>
+        <button onclick="appendNumber('9')">9</button>
+        <button onclick="appendOperator('*')" class="operator">×</button>
+
+        <button onclick="calculateTrig('tan')">tan</button>
+        <button onclick="appendNumber('4')">4</button>
+        <button onclick="appendNumber('5')">5</button>
+        <button onclick="appendNumber('6')">6</button>
+        <button onclick="appendOperator('-')" class="operator">−</button>
+
+        <button onclick="calculateSquareRoot()">√</button>
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <button onclick="appendNumber('3')">3</button>
+        <button onclick="appendOperator('+')" class="operator">+</button>
+
+        <button onclick="appendNumber('00')" style="grid-column: span 2;">00</button>
+        <button onclick="appendNumber('0')">0</button>
+        <button onclick="appendOperator('.')" style="grid-column: span 2;">.</button>
+
+        <button onclick="calculateResult()"
+          style="grid-column: span 5; background-color: #4CAF50; color: white;">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      showSlide(currentSlide);
+    }
+
+    // Kalkulator functions
+    const display = document.getElementById('display');
+
+    function appendNumber(number) {
+      display.value += number;
+    }
+
+    function appendOperator(operator) {
+      display.value += operator;
+    }
+
+    function calculateResult() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'Error';
+      }
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+
+    function deleteLast() {
+      const display = document.getElementById('display');
+      display.value = display.value.slice(0, -1);
+    }
+
+    function calculateTrig(func) {
+      try {
+        let value = parseFloat(display.value);
+        if (isNaN(value)) {
+          display.value = 'Error';
+          return;
+        }
+
+        value = value * Math.PI / 180;
+
+        let result;
+        if (func === 'sin') {
+          result = Math.sin(value);
+        } else if (func === 'cos') {
+          result = Math.cos(value);
+        } else if (func === 'tan') {
+          result = Math.tan(value);
+        }
+
+        display.value = result.toFixed(3);
+      } catch (error) {
+        display.value = 'Error';
+      }
+    }
+
+    function calculateSquareRoot() {
+      try {
+        display.value = Math.sqrt(eval(display.value));
+      } catch {
+        display.value = 'Error'
+      }
+    }
+
+    function calculatePercent() {
+      try {
+        display.value = eval(display.value) / 100;
+      } catch {
+        display.value = 'Error'
+      }
+    }
+  </script>
+
+</body>
+
+</html>
